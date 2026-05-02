@@ -1,1 +1,1 @@
-name: Build ISOon:  workflow_dispatch:jobs:  build:    runs-on: ubuntu-latest    steps:      - uses: actions/checkout@v4      - uses: archlinux/archiso-action@v2        with:          profile_path: profile          output_name: ToIceyOS.iso
+name: Build ISO
