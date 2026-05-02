@@ -1,1 +1,3 @@
-name: Build ISO
+name
+on:
+  workflow_dispatch:: Build ISO
