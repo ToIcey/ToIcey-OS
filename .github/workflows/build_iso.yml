@@ -9,3 +9,4 @@ jobs:
       - uses: archlinux/archiso-action@v2
         with:
           profile_path: profile
+          output_name: ToIceyOS.iso
