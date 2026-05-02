@@ -8,3 +8,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: archlinux/archiso-action@v2
         with:
+          profile_path: profile
