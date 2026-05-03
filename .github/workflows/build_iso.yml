@@ -1,15 +1,25 @@
-name: Build ISO
+name: Build ToIcey OS ISO
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 jobs:
   build:
     runs-on: ubuntu-latest
-        permissions:
-            contents: write
-              
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: archlinux/archiso-action@v2
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Build ISO
+        uses: archlinux/archiso-action@v2
+        id: build
         with:
           profile_path: profile
-          output_name: ToIceyOS.iso
+      - name: Upload ISO Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ToIceyOS-ISO
+          path: /tmp/archiso/out/*.iso
+          if-no-files-found: warn
